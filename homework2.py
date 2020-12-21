@@ -7,11 +7,6 @@ fake = Faker()
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
-
-
 @app.route('/requirements/')
 def requirements():
     req_data = open('requirements.txt', 'r')
