@@ -100,13 +100,10 @@ def number_is_prime(num: int) -> bool:
     https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B5_%D1%87%D0%B8%D1%81%D0%BB%D0%BE#:~:text=2%2C%203%2C%205%2C%207,%D1%87%D0%B8%D1%81%D0%BB%D0%B0%20%D0%B1%D1%8B%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%8B%D0%BC%20%D0%BD%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D1%82%D0%BE%D0%B9.
     """
     if num > 1:
-        if num == 2:
-            return True
         for i in range(2, num):
             if (num % i) == 0:
                 return False
-            else:
-                return True
+        return True
     else:
         return False
 
@@ -189,14 +186,67 @@ def integer_as_roman(integer: int) -> str:
 
 
 if __name__ == '__main__':
+
+    assert len(generate_password(5)) == 5
+    assert len(generate_password(6)) == 6
+    assert len(generate_password(7)) == 7
+    assert len(generate_password(8)) == 8
+    assert len(generate_password(20)) == 20
+
     assert encrypt_message('Dima') == 'Fkoc'
+    assert encrypt_message('Anton') == 'Cpvqp'
+    assert encrypt_message('Tymoshenko') == 'V{oqujgpmq'
+    assert encrypt_message('Ukraine') == 'Wmtckpg'
+    assert encrypt_message('WarLock') == 'YctNqem'
 
-# print(number_is_prime(2))
+    assert lucky_number('456789') is False
+    assert lucky_number('565655') is True
+    assert lucky_number('11111111') is True
+    assert lucky_number('44753567') is False
+    assert lucky_number('4569') is False
 
-# print(encrypt_message('Anton'))
-# print(decrypt_message('Cpvqp'))
-# print(volume_of_sphere(10))
-print(days_diff('10/10/2000', '04/10/2000'))
-# print(prs('p'))
-# print(integer_as_roman(25))
-# print(password_is_strong('aasDF3'))
+    assert fizz_buzz(25) == 'Buzz'
+    assert fizz_buzz(6) == 'Fizz'
+    assert fizz_buzz(15) == 'FizzBuzz'
+    assert fizz_buzz(100) == 'Buzz'
+    assert fizz_buzz(13) == '13'
+
+    assert password_is_strong('asd') is False
+    assert password_is_strong('67890a') is False
+    assert password_is_strong('FDR333as') is False
+    assert password_is_strong('asdFRDa123') is True
+    assert password_is_strong('0000000') is False
+
+    assert number_is_prime(10) is False
+    assert number_is_prime(3) is True
+    assert number_is_prime(7) is True
+    assert number_is_prime(12) is False
+    assert number_is_prime(25) is False
+
+    assert decrypt_message('Fkoc') == 'Dima'
+    assert decrypt_message('Cpvqp') == 'Anton'
+    assert decrypt_message('V{oqujgpmq') == 'Tymoshenko'
+    assert decrypt_message('Wmtckpg') == 'Ukraine'
+    assert decrypt_message('YctNqem') == 'WarLock'
+
+    assert volume_of_sphere(10) == 4188.79
+    assert volume_of_sphere(1) == 4.19
+    assert volume_of_sphere(33) == 150532.55
+    assert volume_of_sphere(22) == 44602.24
+    assert volume_of_sphere(38) == 229847.3
+
+    assert days_diff('10/10/2000', '04/10/2000') == -6
+    assert days_diff('10/10/2000', '10/10/2000') == 0
+    assert days_diff('14/11/1978', '27/01/2021') == 15415
+    assert days_diff('06/08/1979', '27/01/2021') == 15150
+    assert days_diff('04/11/1931', '27/01/2021') == 32592
+
+    assert integer_as_roman(25) == 'XXV'
+    assert integer_as_roman(41) == 'XLI'
+    assert integer_as_roman(17) == 'XVII'
+    assert integer_as_roman(5376) == 'MMMMMCCCLXXVI'
+    assert integer_as_roman(62) == 'LXII'
+
+
+
+
