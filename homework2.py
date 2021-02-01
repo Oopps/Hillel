@@ -35,5 +35,3 @@ def astro_qty():
     astro = requests.get('http://api.open-notify.org/astros.json')
     qty = astro.json()['number']
     return str(qty)
-
-
